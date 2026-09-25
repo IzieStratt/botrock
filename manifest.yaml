@@ -1,0 +1,43 @@
+sdisplay_information:
+  name: botrock
+  description: Being a rock for annoying bots
+  background_color: "#3b3b3b"
+
+features:
+  bot_user:
+    display_name: botrock
+    always_online: true
+  app_home:
+    messages_tab_enabled: true # so we can message ppl
+    messages_tab_read_only_enabled: true # cat ahh settings
+  slash_commands:
+    - command: /botrock
+      description: man i love being a rock
+      usage_hint: "block @bot <reason> | unblock @bot | list | check | canvas | config"
+      should_escape: true
+
+oauth_config:
+  scopes:
+    bot:
+      - commands
+      - chat:write
+      - im:write
+      - users:read
+      - usergroups:read
+      - channels:join
+      - channels:history
+      - canvases:write
+    user:
+      # SLACK_ADMIN_TOKEN, install the app as a workspace or org admin
+      - admin.apps:read
+      - admin.apps:write
+
+settings:
+  event_subscriptions:
+    user_events:
+      - app_requested       # someone asked to install an app
+  interactivity:
+    is_enabled: true
+  org_deploy_enabled: true  # idk
+  socket_mode_enabled: true
+  token_rotation_enabled: false
